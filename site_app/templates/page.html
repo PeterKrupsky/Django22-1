@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ content_object.item_title }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="fade-in body" style="margin-top: 50px;">
+
+        <div class="mb-5 text-center" style="font-size: 22px; font-weight: bold;">
+            Узнай больше — исследуй и вдохновляйся!
+        </div>
+
+        <nav class="tab-container mb-4">
+            <ul class="nav nav-tabs" style="justify-content: center;">
+                {% for object in nav_objects %}
+                    <li class="nav-item tab-item" style="margin: 0 5px;">
+                        <a class="nav-link {% if pk == object.id %}active{% endif %}"
+                           href="{% url 'site_app:page' pk=object.id %}">
+                            {{ object.item_nav }}
+                        </a>
+                    </li>
+            {% endfor %}
+            </ul>
+        </nav>
+
+
+        <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+            <div style="background: rgba(40, 40, 40, 0.85); padding: 25px; border-radius: 15px;  width: 100%;">
+                <h2 class="text-center mb-4" style="color: #f0f0f0; font-size: 28px; text-shadow: 1px 1px 3px #000;">
+                    {% autoescape off %}{{ content_object.item_title }}{% endautoescape %}
+                </h2>
+        
+                <div class="content-text" style="font-size: 18px; line-height: 1.6; color: #eee;">
+                    {% autoescape off %}
+                        {{ content_object.item_content }}
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
+        
+
+
+    </div>
+{% endblock %}

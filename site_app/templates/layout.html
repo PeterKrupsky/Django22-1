@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>{% block title %}Главная страница{% endblock %}</title>
+
+    {% load static %}
+    <link href="{% static 'css/mstylee.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <header class="header-block accent-bg" style="padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+        <div class="header-inner">
+            <h1 class="heading-xl" style="color: rgb(0, 0, 0);">
+                Информационный портал
+            </h1>
+        </div>
+    </header>
+
+    <main class="main-content" style="margin-top: 30px;">
+        <section class="content-section" style="background: rgba(30, 30, 30, 0.9); padding: 20px; border-radius: 12px; color: white;">
+            {% block content %}
+            <p>Добро пожаловать! Здесь вы найдете актуальные материалы, инструменты и обновления по выбранным темам.</p>
+            {% endblock %}
+        </section>
+    </main>
+
+    <footer class="footer-container" style="margin-top: 50px;">
+        <div class="footer-content" style="background: rgba(30, 30, 30, 0.9); padding: 15px; border-radius: 10px; color: #ccc;">
+            <p>Следите за новостями и обновлениями — всё самое важное в одном месте.</p>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
